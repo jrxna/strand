@@ -28,25 +28,25 @@ export default async function UserProfilePage({ params }: UserProfilePageProps) 
 
   return (
     <ForumShell currentSection="users">
-      <section className="border-b-[0.15px] border-[var(--jr-border)] px-4 py-4">
+      <section className="border-b-[0.05px] px-4 py-4">
         <h1 className="text-xl font-bold">{formatUsername(profile.username)}</h1>
         <p className="mt-1 text-sm text-[var(--jr-text-muted)]">{profile.role}</p>
         <p className="mt-4 text-sm text-[var(--jr-text-muted)]">{profile.bio}</p>
         <p className="mt-4 text-sm text-[var(--jr-text-muted)]">Joined: {formatDateOnly(profile.joinedAt)}</p>
       </section>
 
-      <section className="border-b-[0.15px] border-[var(--jr-border)] px-4 py-4">
+      <section className="border-b-[0.05px] px-4 py-4">
         <h2 className="text-lg font-semibold">Activity</h2>
         <div className="mt-4 grid grid-cols-3 gap-4 text-sm">
-          <div className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface-alt)] p-4">
+          <div className="rounded-[8px] bg-[var(--jr-surface-alt)] p-4">
             <p className="text-[var(--jr-text-muted)]">Questions</p>
             <p className="mt-2 text-xl font-semibold">{activity.questions.length}</p>
           </div>
-          <div className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface-alt)] p-4">
+          <div className="rounded-[8px] bg-[var(--jr-surface-alt)] p-4">
             <p className="text-[var(--jr-text-muted)]">Answers</p>
             <p className="mt-2 text-xl font-semibold">{activity.comments.length}</p>
           </div>
-          <div className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface-alt)] p-4">
+          <div className="rounded-[8px] bg-[var(--jr-surface-alt)] p-4">
             <p className="text-[var(--jr-text-muted)]">Replies</p>
             <p className="mt-2 text-xl font-semibold">{activity.replies.length}</p>
           </div>
@@ -60,7 +60,7 @@ export default async function UserProfilePage({ params }: UserProfilePageProps) 
             activity.questions.map((question) => (
               <article
                 key={question.id}
-                className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface-alt)] p-4"
+                className="rounded-[8px] bg-[var(--jr-surface-alt)] p-4"
               >
                 <Link href={`/questions/${question.id}`} className="text-[var(--jr-brand)] hover:underline">
                   {question.title}

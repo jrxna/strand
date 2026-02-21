@@ -7,13 +7,13 @@
   --jr-surface-alt: #3e3935;
   --jr-text: #f2f2f2;
   --jr-text-muted: rgba(242, 242, 242, 0.8);
-  --jr-border: rgba(242, 242, 242, 0.5);
+  --jr-border: #facd62;
   --jr-button: #3e3935;
   --jr-button-hover: #3e3935;
   --jr-hover: #3e3935;
   --jr-selected: #3e3935;
-  --jr-tag-bg: #3e3935;
-  --jr-tag-text: #facd62;
+  --jr-tag-bg: #facd62;
+  --jr-tag-text: #312d2a;
   --background: var(--jr-bg);
   --foreground: var(--jr-text);
 }

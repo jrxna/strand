@@ -15,10 +15,10 @@ export default function QuestionLikeButton({ initialLikes }: QuestionLikeButtonP
       type="button"
       aria-pressed={liked}
       onClick={() => setLiked((value) => !value)}
-      className={`mt-4 inline-flex items-center gap-2 leading-none rounded-[8px] border-[0.25px] px-3 py-2 text-sm font-semibold transition ${
+      className={`mt-4 inline-flex items-center gap-2 leading-none rounded-[8px] px-3 py-2 text-sm font-semibold transition ${
         liked
-          ? "border-[var(--jr-brand)] bg-[var(--jr-brand)] text-[#312D2A]"
-          : "border-[var(--jr-border)] bg-[var(--jr-button)] text-[var(--jr-text)]"
+          ? "bg-[var(--jr-brand)] text-[#312D2A]"
+          : "bg-[var(--jr-button)] text-[var(--jr-text)]"
       }`}
     >
       <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 shrink-0" aria-hidden="true">

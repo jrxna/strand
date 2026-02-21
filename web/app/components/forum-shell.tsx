@@ -54,7 +54,7 @@ export default function ForumShell({ currentSection, children, plainMain = false
 
   return (
     <div className="min-h-screen bg-[var(--jr-bg)] text-[var(--jr-text)] text-sm">
-      <header className="sticky top-0 z-20 bg-[var(--jr-surface)] shadow-[0_6px_18px_rgba(250,205,98,0.2)]">
+      <header className="sticky top-0 z-20 bg-[var(--jr-surface)] shadow-[0_3px_10px_rgba(250,205,98,0.14)]">
         <div className="mx-auto flex h-16 w-full max-w-[1280px] items-center gap-3 px-3 md:px-5">
           <Link href="/" className="shrink-0" aria-label="JRXNA Home">
             <Image

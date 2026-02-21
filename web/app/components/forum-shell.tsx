@@ -4,19 +4,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import {
-  IconBrandBluesky,
-  IconBrandGithub,
-  IconBrandLinkedin,
-  IconBrandReddit,
-  IconBrandYoutube,
-  IconCompass,
-  IconNotebook,
-  IconTag,
-} from "@tabler/icons-react";
+  FaBookOpen,
+  FaCompass,
+  FaGithub,
+  FaLinkedin,
+  FaMagnifyingGlass,
+  FaRedditAlien,
+  FaTag,
+  FaYoutube,
+} from "react-icons/fa6";
+import { SiBluesky } from "react-icons/si";
 
 type ForumShellProps = {
   currentSection: "home" | "questions" | "tags" | "users" | "blog";
   children: React.ReactNode;
+  plainMain?: boolean;
 };
 
 const topTags = ["next.js", "react", "typescript", "javascript", "design", "routing"];
@@ -36,17 +38,17 @@ const navItems: Array<{ id: ForumShellProps["currentSection"]; label: string; hr
 
 function SectionIcon({ type }: { type: "navigation" | "blog" | "tags" }) {
   if (type === "navigation") {
-    return <IconCompass className="h-5 w-5 shrink-0 text-[var(--jr-brand)]" stroke={1.8} aria-hidden="true" />;
+    return <FaCompass className="h-[1em] w-[1em] shrink-0 text-[var(--jr-brand)]" aria-hidden="true" />;
   }
 
   if (type === "blog") {
-    return <IconNotebook className="h-5 w-5 shrink-0 text-[var(--jr-brand)]" stroke={1.8} aria-hidden="true" />;
+    return <FaBookOpen className="h-[1em] w-[1em] shrink-0 text-[var(--jr-brand)]" aria-hidden="true" />;
   }
 
-  return <IconTag className="h-5 w-5 shrink-0 text-[var(--jr-brand)]" stroke={1.8} aria-hidden="true" />;
+  return <FaTag className="h-[1em] w-[1em] shrink-0 text-[var(--jr-brand)]" aria-hidden="true" />;
 }
 
-export default function ForumShell({ currentSection, children }: ForumShellProps) {
+export default function ForumShell({ currentSection, children, plainMain = false }: ForumShellProps) {
   const [authModal, setAuthModal] = useState<"login" | "signup" | null>(null);
   const closeAuthModal = () => setAuthModal(null);
 
@@ -66,14 +68,10 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
           </Link>
           <div className="ml-auto flex w-full items-center justify-end gap-3 md:w-auto">
             <div className="relative w-full md:w-[420px] md:flex-none">
-              <svg
-                viewBox="0 0 16 16"
-                className="pointer-events-none absolute left-3 top-1/2 h-[16px] w-[16px] -translate-y-1/2 text-[var(--jr-brand)]"
+              <FaMagnifyingGlass
+                className="pointer-events-none absolute left-3 top-1/2 h-[1em] w-[1em] -translate-y-1/2 text-[var(--jr-brand)]"
                 aria-hidden="true"
-              >
-                <circle cx="7" cy="7" r="4.2" fill="none" stroke="currentColor" strokeWidth="1.2" />
-                <path d="M10.5 10.5L14 14" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-              </svg>
+              />
               <input
                 className="h-9 w-full rounded-[8px] bg-[var(--jr-surface-alt)] pl-9 pr-3 text-sm outline-none transition"
                 placeholder="Search questions, tags, and users"
@@ -184,7 +182,7 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
       <div className="mx-auto w-full max-w-[1280px] px-3 py-4 md:px-5">
         <div className="mb-4 space-y-4 md:hidden">
           <section className="rounded-[8px] bg-[var(--jr-surface)]">
-            <h2 className="flex items-center gap-2 leading-5 px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+            <h2 className="inline-flex items-center gap-2 leading-none px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
               <SectionIcon type="navigation" />
               Navigation
             </h2>
@@ -209,7 +207,7 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
         <div className="grid grid-cols-1 gap-4 md:grid-cols-[260px_minmax(0,1fr)_220px]">
           <aside className="hidden self-start md:sticky md:top-20 md:block">
             <section className="rounded-[8px] bg-[var(--jr-surface)]">
-              <h2 className="flex items-center gap-2 leading-5 px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+              <h2 className="inline-flex items-center gap-2 leading-none px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
                 <SectionIcon type="navigation" />
                 Navigation
               </h2>
@@ -231,11 +229,11 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
             </section>
           </aside>
 
-          <main className="rounded-[8px] bg-[var(--jr-surface)]">{children}</main>
+          <main className={plainMain ? "" : "rounded-[8px] bg-[var(--jr-surface)]"}>{children}</main>
 
           <aside className="space-y-4 md:hidden">
             <section className="rounded-[8px] bg-[var(--jr-surface)]">
-              <h2 className="flex items-center gap-2 leading-5 px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+              <h2 className="inline-flex items-center gap-2 leading-none px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
                 <SectionIcon type="blog" />
                 Blog
               </h2>
@@ -246,7 +244,7 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
               </ul>
             </section>
             <section className="rounded-[8px] bg-[var(--jr-surface)]">
-              <h2 className="flex items-center gap-2 leading-5 px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+              <h2 className="inline-flex items-center gap-2 leading-none px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
                 <SectionIcon type="tags" />
                 Tags
               </h2>
@@ -265,7 +263,7 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
 
           <aside className="hidden self-start md:sticky md:top-20 md:block">
             <section className="rounded-[8px] bg-[var(--jr-surface)]">
-              <h2 className="flex items-center gap-2 leading-5 px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+              <h2 className="inline-flex items-center gap-2 leading-none px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
                 <SectionIcon type="blog" />
                 Blog
               </h2>
@@ -276,7 +274,7 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
               </ul>
             </section>
             <section className="mt-4 rounded-[8px] bg-[var(--jr-surface)]">
-              <h2 className="flex items-center gap-2 leading-5 px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+              <h2 className="inline-flex items-center gap-2 leading-none px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
                 <SectionIcon type="tags" />
                 Tags
               </h2>
@@ -304,19 +302,19 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
             </p>
             <div className="mt-4 flex items-center gap-3">
               <a href="#" className="text-[var(--jr-brand)] hover:opacity-80" aria-label="LinkedIn">
-                <IconBrandLinkedin className="h-6 w-6" stroke={1.6} aria-hidden="true" />
+                <FaLinkedin className="h-7 w-7" aria-hidden="true" />
               </a>
               <a href="#" className="text-[var(--jr-brand)] hover:opacity-80" aria-label="Bluesky">
-                <IconBrandBluesky className="h-6 w-6" stroke={1.6} aria-hidden="true" />
+                <SiBluesky className="h-7 w-7" aria-hidden="true" />
               </a>
               <a href="#" className="text-[var(--jr-brand)] hover:opacity-80" aria-label="YouTube">
-                <IconBrandYoutube className="h-6 w-6" stroke={1.6} aria-hidden="true" />
+                <FaYoutube className="h-7 w-7" aria-hidden="true" />
               </a>
               <a href="#" className="text-[var(--jr-brand)] hover:opacity-80" aria-label="Reddit">
-                <IconBrandReddit className="h-6 w-6" stroke={1.6} aria-hidden="true" />
+                <FaRedditAlien className="h-7 w-7" aria-hidden="true" />
               </a>
               <a href="#" className="text-[var(--jr-brand)] hover:opacity-80" aria-label="GitHub">
-                <IconBrandGithub className="h-6 w-6" stroke={1.6} aria-hidden="true" />
+                <FaGithub className="h-7 w-7" aria-hidden="true" />
               </a>
             </div>
           </div>

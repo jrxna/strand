@@ -64,7 +64,7 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
 
   return (
     <div className="min-h-screen bg-[var(--jr-bg)] text-[var(--jr-text)] text-sm">
-      <header className="sticky top-0 z-20 border-t-[3px] border-t-[var(--jr-brand)] border-b-[0.25px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
+      <header className="sticky top-0 z-20 border-t-[3px] border-t-[var(--jr-brand)] border-b-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
         <div className="mx-auto flex h-16 w-full max-w-[1280px] items-center gap-3 px-3 md:px-5">
           <Link href="/" className="shrink-0" aria-label="JRXNA Home">
             <Image
@@ -78,20 +78,20 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
           </Link>
           <div className="ml-auto flex w-full items-center justify-end gap-3 md:w-auto">
             <input
-              className="h-9 w-full rounded-[8px] border-[0.25px] border-[var(--jr-border)] bg-[var(--jr-surface-alt)] px-3 text-sm outline-none transition md:w-[420px] md:flex-none"
+              className="h-9 w-full rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface-alt)] px-3 text-sm outline-none transition md:w-[420px] md:flex-none"
               placeholder="Search questions, tags, and users"
             />
             <button
               type="button"
               onClick={() => setAuthModal("login")}
-              className="h-9 shrink-0 whitespace-nowrap rounded-[8px] border-[0.25px] border-[var(--jr-border)] bg-[var(--jr-button)] px-3 text-sm text-[var(--jr-text)] hover:bg-[var(--jr-button-hover)]"
+              className="h-9 shrink-0 whitespace-nowrap rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-button)] px-3 text-sm text-[var(--jr-text)] hover:bg-[var(--jr-button-hover)]"
             >
               Log in
             </button>
             <button
               type="button"
               onClick={() => setAuthModal("signup")}
-              className="h-9 shrink-0 whitespace-nowrap rounded-[8px] border-[0.25px] border-[var(--jr-brand)] bg-[var(--jr-brand)] px-3 text-sm font-semibold text-[#312D2A]"
+              className="h-9 shrink-0 whitespace-nowrap rounded-[8px] border-[0.15px] border-[var(--jr-brand)] bg-[var(--jr-brand)] px-3 text-sm font-semibold text-[#312D2A]"
             >
               Sign up
             </button>
@@ -105,7 +105,7 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
           onClick={closeAuthModal}
         >
           <div
-            className="auth-modal-panel w-full max-w-[420px] rounded-[8px] border-[0.25px] border-[var(--jr-border)] bg-[var(--jr-surface)] p-4"
+            className="auth-modal-panel w-full max-w-[420px] rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface)] p-4"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="flex items-start justify-between gap-4">
@@ -122,7 +122,7 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
               <button
                 type="button"
                 onClick={closeAuthModal}
-                className="rounded-[8px] border-[0.25px] border-[var(--jr-border)] px-2 py-1 text-sm text-[var(--jr-text-muted)] hover:text-[var(--jr-text)]"
+                className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] px-2 py-1 text-sm text-[var(--jr-text-muted)] hover:text-[var(--jr-text)]"
                 aria-label="Close dialog"
               >
                 ✕
@@ -144,7 +144,7 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
                   id="auth-username"
                   name="username"
                   required
-                  className="h-10 w-full rounded-[8px] border-[0.25px] border-[var(--jr-border)] bg-[var(--jr-surface-alt)] px-3 text-sm outline-none"
+                  className="h-10 w-full rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface-alt)] px-3 text-sm outline-none"
                   placeholder="Enter your username"
                 />
               </div>
@@ -158,7 +158,7 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
                   name="password"
                   type="password"
                   required
-                  className="h-10 w-full rounded-[8px] border-[0.25px] border-[var(--jr-border)] bg-[var(--jr-surface-alt)] px-3 text-sm outline-none"
+                  className="h-10 w-full rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface-alt)] px-3 text-sm outline-none"
                   placeholder={authModal === "login" ? "Enter your password" : "Create a password"}
                 />
               </div>
@@ -167,13 +167,13 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
                 <button
                   type="button"
                   onClick={closeAuthModal}
-                  className="rounded-[8px] border-[0.25px] border-[var(--jr-border)] bg-[var(--jr-button)] px-3 py-2 text-sm text-[var(--jr-text)]"
+                  className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-button)] px-3 py-2 text-sm text-[var(--jr-text)]"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="rounded-[8px] border-[0.25px] border-[var(--jr-brand)] bg-[var(--jr-brand)] px-3 py-2 text-sm font-semibold text-[#312D2A]"
+                  className="rounded-[8px] border-[0.15px] border-[var(--jr-brand)] bg-[var(--jr-brand)] px-3 py-2 text-sm font-semibold text-[#312D2A]"
                 >
                   {authModal === "login" ? "Log in" : "Create account"}
                 </button>
@@ -185,8 +185,8 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
 
       <div className="mx-auto w-full max-w-[1280px] px-3 py-4 md:px-5">
         <div className="mb-4 space-y-4 md:hidden">
-          <section className="rounded-[8px] border-[0.25px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
-            <h2 className="flex items-center gap-2 border-b-[0.25px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+          <section className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
+            <h2 className="flex items-center gap-2 border-b-[0.15px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
               <SectionIcon type="navigation" />
               Navigation
             </h2>
@@ -210,8 +210,8 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-[260px_minmax(0,1fr)_220px]">
           <aside className="hidden self-start md:sticky md:top-20 md:block">
-            <section className="rounded-[8px] border-[0.25px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
-              <h2 className="flex items-center gap-2 border-b-[0.25px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+            <section className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
+              <h2 className="flex items-center gap-2 border-b-[0.15px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
                 <SectionIcon type="navigation" />
                 Navigation
               </h2>
@@ -233,11 +233,11 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
             </section>
           </aside>
 
-          <main className="rounded-[8px] border-[0.25px] border-[var(--jr-border)] bg-[var(--jr-surface)]">{children}</main>
+          <main className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface)]">{children}</main>
 
           <aside className="space-y-4 md:hidden">
-            <section className="rounded-[8px] border-[0.25px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
-              <h2 className="flex items-center gap-2 border-b-[0.25px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+            <section className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
+              <h2 className="flex items-center gap-2 border-b-[0.15px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
                 <SectionIcon type="blog" />
                 Blog
               </h2>
@@ -247,8 +247,8 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
                 ))}
               </ul>
             </section>
-            <section className="rounded-[8px] border-[0.25px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
-              <h2 className="flex items-center gap-2 border-b-[0.25px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+            <section className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
+              <h2 className="flex items-center gap-2 border-b-[0.15px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
                 <SectionIcon type="tags" />
                 Tags
               </h2>
@@ -256,7 +256,7 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
                 {topTags.map((tag) => (
                   <span
                     key={`mobile-${tag}`}
-                    className="rounded-[8px] border-[0.25px] border-[var(--jr-border)] bg-[var(--jr-tag-bg)] cursor-pointer px-2 py-1 text-xs font-semibold text-[var(--jr-tag-text)]"
+                    className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-tag-bg)] cursor-pointer px-2 py-1 text-xs font-semibold text-[var(--jr-tag-text)]"
                   >
                     #{tag}
                   </span>
@@ -266,8 +266,8 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
           </aside>
 
           <aside className="hidden self-start md:sticky md:top-20 md:block">
-            <section className="rounded-[8px] border-[0.25px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
-              <h2 className="flex items-center gap-2 border-b-[0.25px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+            <section className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
+              <h2 className="flex items-center gap-2 border-b-[0.15px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
                 <SectionIcon type="blog" />
                 Blog
               </h2>
@@ -277,8 +277,8 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
                 ))}
               </ul>
             </section>
-            <section className="mt-4 rounded-[8px] border-[0.25px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
-              <h2 className="flex items-center gap-2 border-b-[0.25px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+            <section className="mt-4 rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
+              <h2 className="flex items-center gap-2 border-b-[0.15px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
                 <SectionIcon type="tags" />
                 Tags
               </h2>
@@ -286,7 +286,7 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
                 {topTags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-[8px] border-[0.25px] border-[var(--jr-border)] bg-[var(--jr-tag-bg)] cursor-pointer px-2 py-1 text-xs font-semibold text-[var(--jr-tag-text)]"
+                    className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-tag-bg)] cursor-pointer px-2 py-1 text-xs font-semibold text-[var(--jr-tag-text)]"
                   >
                     #{tag}
                   </span>
@@ -300,9 +300,9 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
       <footer className="border-t-[0.5px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
         <div className="mx-auto grid w-full max-w-[1280px] grid-cols-1 gap-6 px-4 py-6 text-sm text-[var(--jr-text-muted)] md:grid-cols-[1.3fr_1fr_1fr_1fr]">
           <div>
-            <Image src="/brand/Logotype.png" alt="JRXNA" width={140} height={34} className="h-[22px] w-auto" />
-            <p className="mt-2 text-sm">
-              A forum for both humans and agents to learn computer science through questions and answers.
+            <Image src="/brand/Logotype.png" alt="JRXNA" width={180} height={44} className="h-[22px] w-auto md:h-[30px]" />
+            <p className="mt-2 text-base">
+              A forum for Humans and Agents to learn computer science through questions and answers.
             </p>
             <div className="mt-4 flex items-center gap-3">
               <a href="#" className="text-[var(--jr-brand)] hover:opacity-80" aria-label="LinkedIn">

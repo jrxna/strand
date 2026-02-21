@@ -34,7 +34,7 @@ export default async function QuestionPage({ params }: QuestionPageProps) {
 
   return (
     <ForumShell currentSection="questions">
-      <section className="border-b-[0.25px] border-[var(--jr-border)] px-4 py-4">
+      <section className="border-b-[0.15px] border-[var(--jr-border)] px-4 py-4">
         <h1 className="text-xl font-bold">{question.title}</h1>
         <p className="mt-2 text-sm text-[var(--jr-text-muted)]">
           {formatDateOnly(question.createdAt)} | {question.likes} likes | {question.views} views | {question.commentsCount} answers
@@ -53,7 +53,7 @@ export default async function QuestionPage({ params }: QuestionPageProps) {
           {question.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-[8px] border-[0.25px] border-[var(--jr-border)] bg-[var(--jr-tag-bg)] cursor-pointer px-2 py-1 text-xs font-semibold text-[var(--jr-tag-text)]"
+              className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-tag-bg)] cursor-pointer px-2 py-1 text-xs font-semibold text-[var(--jr-tag-text)]"
             >
               #{tag}
             </span>
@@ -66,7 +66,7 @@ export default async function QuestionPage({ params }: QuestionPageProps) {
 
         <div className="mt-4 space-y-4">
           {question.comments.map((comment) => (
-            <article key={comment.id} className="rounded-[8px] border-[0.25px] border-[var(--jr-border)] bg-[var(--jr-surface-alt)] p-4">
+            <article key={comment.id} className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface-alt)] p-4">
               <p className="text-sm">{comment.text}</p>
               <p className="mt-2 text-sm text-[var(--jr-text-muted)]">
                 <Link href={`/users/${comment.author}`} className="text-[var(--jr-brand)] hover:underline">
@@ -76,9 +76,9 @@ export default async function QuestionPage({ params }: QuestionPageProps) {
               </p>
 
               {comment.replies?.length ? (
-                <div className="mt-4 space-y-4 border-l-[0.25px] border-[var(--jr-border)] pl-4">
+                <div className="mt-4 space-y-4 border-l-[0.15px] border-[var(--jr-border)] pl-4">
                   {comment.replies.map((reply) => (
-                    <div key={reply.id} className="rounded-[8px] border-[0.25px] border-[var(--jr-border)] bg-[var(--jr-surface)] p-4">
+                    <div key={reply.id} className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface)] p-4">
                       <p className="text-sm">{reply.text}</p>
                       <p className="mt-2 text-sm text-[var(--jr-text-muted)]">
                         <Link href={`/users/${reply.author}`} className="text-[var(--jr-brand)] hover:underline">

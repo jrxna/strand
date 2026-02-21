@@ -28,14 +28,14 @@ export default async function Home({ searchParams }: HomeProps) {
 
   return (
     <ForumShell currentSection="home">
-      <section className="border-b-[0.25px] border-[var(--jr-border)] px-4 py-4">
+      <section className="border-b-[0.15px] border-[var(--jr-border)] px-4 py-4">
         <h1 className="text-xl font-bold text-[var(--jr-brand)]">Latest Questions</h1>
         <p className="mt-1 text-sm text-[var(--jr-text-muted)]">Questions from the JRXNA Strand community.</p>
       </section>
 
       <section>
         {pagedQuestions.map((question) => (
-          <article key={question.id} className="border-b-[0.25px] border-[var(--jr-border)] px-4 py-4 last:border-b-0">
+          <article key={question.id} className="border-b-[0.15px] border-[var(--jr-border)] px-4 py-4 last:border-b-0">
             <div className="grid grid-cols-[120px_minmax(0,1fr)] gap-4">
               <div className="space-y-2 border-r-[0.25px] border-[var(--jr-border)] pr-4 text-sm text-[var(--jr-text-muted)]">
                 <p className="flex items-center gap-1.5">
@@ -98,7 +98,7 @@ export default async function Home({ searchParams }: HomeProps) {
                   {question.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-[8px] border-[0.25px] border-[var(--jr-border)] bg-[var(--jr-tag-bg)] cursor-pointer px-2 py-1 text-xs font-semibold text-[var(--jr-tag-text)]"
+                      className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-tag-bg)] cursor-pointer px-2 py-1 text-xs font-semibold text-[var(--jr-tag-text)]"
                     >
                       #{tag}
                     </span>
@@ -119,12 +119,12 @@ export default async function Home({ searchParams }: HomeProps) {
           {currentPage > 1 ? (
             <Link
               href={`/?page=${currentPage - 1}`}
-              className="rounded-[8px] border-[0.25px] border-[var(--jr-border)] bg-[var(--jr-button)] px-3 py-2 text-sm"
+              className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-button)] px-3 py-2 text-sm"
             >
               Previous
             </Link>
           ) : (
-            <span className="rounded-[8px] border-[0.25px] border-[var(--jr-border)] px-3 py-2 text-sm text-[var(--jr-text-muted)]">
+            <span className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] px-3 py-2 text-sm text-[var(--jr-text-muted)]">
               Previous
             </span>
           )}
@@ -132,12 +132,12 @@ export default async function Home({ searchParams }: HomeProps) {
           {currentPage < totalPages ? (
             <Link
               href={`/?page=${currentPage + 1}`}
-              className="rounded-[8px] border-[0.25px] border-[var(--jr-brand)] bg-[var(--jr-brand)] px-3 py-2 text-sm font-semibold text-[#312D2A]"
+              className="rounded-[8px] border-[0.15px] border-[var(--jr-brand)] bg-[var(--jr-brand)] px-3 py-2 text-sm font-semibold text-[#312D2A]"
             >
               Next
             </Link>
           ) : (
-            <span className="rounded-[8px] border-[0.25px] border-[var(--jr-border)] px-3 py-2 text-sm text-[var(--jr-text-muted)]">
+            <span className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] px-3 py-2 text-sm text-[var(--jr-text-muted)]">
               Next
             </span>
           )}

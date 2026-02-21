@@ -34,7 +34,7 @@ const navItems: Array<{ id: ForumShellProps["currentSection"]; label: string; hr
 function SectionIcon({ type }: { type: "navigation" | "blog" | "tags" }) {
   if (type === "navigation") {
     return (
-      <svg viewBox="0 0 16 16" className="h-[18px] w-[18px] text-[var(--jr-brand)]" aria-hidden="true">
+      <svg viewBox="0 0 16 16" className="h-[18px] w-[18px] shrink-0 text-[var(--jr-brand)]" aria-hidden="true">
         <path d="M8 1L15 8L8 15L1 8Z" fill="none" stroke="currentColor" strokeWidth="1.25" />
         <circle cx="8" cy="8" r="1.2" fill="currentColor" />
       </svg>
@@ -43,7 +43,7 @@ function SectionIcon({ type }: { type: "navigation" | "blog" | "tags" }) {
 
   if (type === "blog") {
     return (
-      <svg viewBox="0 0 16 16" className="h-[18px] w-[18px] text-[var(--jr-brand)]" aria-hidden="true">
+      <svg viewBox="0 0 16 16" className="h-[18px] w-[18px] shrink-0 text-[var(--jr-brand)]" aria-hidden="true">
         <rect x="2" y="2" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.25" />
         <path d="M5 6H11M5 8.5H11M5 11H9" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
       </svg>
@@ -51,7 +51,7 @@ function SectionIcon({ type }: { type: "navigation" | "blog" | "tags" }) {
   }
 
   return (
-    <svg viewBox="0 0 16 16" className="h-[18px] w-[18px] text-[var(--jr-brand)]" aria-hidden="true">
+    <svg viewBox="0 0 16 16" className="h-[18px] w-[18px] shrink-0 text-[var(--jr-brand)]" aria-hidden="true">
       <path d="M2.5 7.5L7.5 2.5H13.5V8.5L8.5 13.5L2.5 7.5Z" fill="none" stroke="currentColor" strokeWidth="1.25" />
       <circle cx="10.8" cy="5.2" r="0.9" fill="currentColor" />
     </svg>
@@ -77,10 +77,20 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
             />
           </Link>
           <div className="ml-auto flex w-full items-center justify-end gap-3 md:w-auto">
-            <input
-              className="h-9 w-full rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface-alt)] px-3 text-sm outline-none transition md:w-[420px] md:flex-none"
-              placeholder="Search questions, tags, and users"
-            />
+            <div className="relative w-full md:w-[420px] md:flex-none">
+              <svg
+                viewBox="0 0 16 16"
+                className="pointer-events-none absolute left-3 top-1/2 h-[16px] w-[16px] -translate-y-1/2 text-[var(--jr-brand)]"
+                aria-hidden="true"
+              >
+                <circle cx="7" cy="7" r="4.2" fill="none" stroke="currentColor" strokeWidth="1.2" />
+                <path d="M10.5 10.5L14 14" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+              </svg>
+              <input
+                className="h-9 w-full rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface-alt)] pl-9 pr-3 text-sm outline-none transition"
+                placeholder="Search questions, tags, and users"
+              />
+            </div>
             <button
               type="button"
               onClick={() => setAuthModal("login")}
@@ -186,7 +196,7 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
       <div className="mx-auto w-full max-w-[1280px] px-3 py-4 md:px-5">
         <div className="mb-4 space-y-4 md:hidden">
           <section className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
-            <h2 className="flex items-center gap-2 border-b-[0.15px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+            <h2 className="flex items-center gap-2 leading-none border-b-[0.15px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
               <SectionIcon type="navigation" />
               Navigation
             </h2>
@@ -211,7 +221,7 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
         <div className="grid grid-cols-1 gap-4 md:grid-cols-[260px_minmax(0,1fr)_220px]">
           <aside className="hidden self-start md:sticky md:top-20 md:block">
             <section className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
-              <h2 className="flex items-center gap-2 border-b-[0.15px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+              <h2 className="flex items-center gap-2 leading-none border-b-[0.15px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
                 <SectionIcon type="navigation" />
                 Navigation
               </h2>
@@ -237,7 +247,7 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
 
           <aside className="space-y-4 md:hidden">
             <section className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
-              <h2 className="flex items-center gap-2 border-b-[0.15px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+              <h2 className="flex items-center gap-2 leading-none border-b-[0.15px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
                 <SectionIcon type="blog" />
                 Blog
               </h2>
@@ -248,7 +258,7 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
               </ul>
             </section>
             <section className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
-              <h2 className="flex items-center gap-2 border-b-[0.15px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+              <h2 className="flex items-center gap-2 leading-none border-b-[0.15px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
                 <SectionIcon type="tags" />
                 Tags
               </h2>
@@ -267,7 +277,7 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
 
           <aside className="hidden self-start md:sticky md:top-20 md:block">
             <section className="rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
-              <h2 className="flex items-center gap-2 border-b-[0.15px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+              <h2 className="flex items-center gap-2 leading-none border-b-[0.15px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
                 <SectionIcon type="blog" />
                 Blog
               </h2>
@@ -278,7 +288,7 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
               </ul>
             </section>
             <section className="mt-4 rounded-[8px] border-[0.15px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
-              <h2 className="flex items-center gap-2 border-b-[0.15px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+              <h2 className="flex items-center gap-2 leading-none border-b-[0.15px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
                 <SectionIcon type="tags" />
                 Tags
               </h2>

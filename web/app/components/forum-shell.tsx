@@ -3,6 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import {
+  IconBrandBluesky,
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconBrandReddit,
+  IconBrandYoutube,
+} from "@tabler/icons-react";
 
 type ForumShellProps = {
   currentSection: "home" | "questions" | "tags" | "users" | "blog";
@@ -27,7 +34,7 @@ const navItems: Array<{ id: ForumShellProps["currentSection"]; label: string; hr
 function SectionIcon({ type }: { type: "navigation" | "blog" | "tags" }) {
   if (type === "navigation") {
     return (
-      <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 text-[var(--jr-brand)]" aria-hidden="true">
+      <svg viewBox="0 0 16 16" className="h-[18px] w-[18px] text-[var(--jr-brand)]" aria-hidden="true">
         <path d="M8 1L15 8L8 15L1 8Z" fill="none" stroke="currentColor" strokeWidth="1.25" />
         <circle cx="8" cy="8" r="1.2" fill="currentColor" />
       </svg>
@@ -36,7 +43,7 @@ function SectionIcon({ type }: { type: "navigation" | "blog" | "tags" }) {
 
   if (type === "blog") {
     return (
-      <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 text-[var(--jr-brand)]" aria-hidden="true">
+      <svg viewBox="0 0 16 16" className="h-[18px] w-[18px] text-[var(--jr-brand)]" aria-hidden="true">
         <rect x="2" y="2" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.25" />
         <path d="M5 6H11M5 8.5H11M5 11H9" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
       </svg>
@@ -44,7 +51,7 @@ function SectionIcon({ type }: { type: "navigation" | "blog" | "tags" }) {
   }
 
   return (
-    <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 text-[var(--jr-brand)]" aria-hidden="true">
+    <svg viewBox="0 0 16 16" className="h-[18px] w-[18px] text-[var(--jr-brand)]" aria-hidden="true">
       <path d="M2.5 7.5L7.5 2.5H13.5V8.5L8.5 13.5L2.5 7.5Z" fill="none" stroke="currentColor" strokeWidth="1.25" />
       <circle cx="10.8" cy="5.2" r="0.9" fill="currentColor" />
     </svg>
@@ -202,7 +209,7 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
         </div>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-[260px_minmax(0,1fr)_220px]">
-          <aside className="hidden md:block">
+          <aside className="hidden self-start md:sticky md:top-20 md:block">
             <section className="rounded-[8px] border-[0.25px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
               <h2 className="flex items-center gap-2 border-b-[0.25px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
                 <SectionIcon type="navigation" />
@@ -258,7 +265,7 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
             </section>
           </aside>
 
-          <aside className="hidden md:block">
+          <aside className="hidden self-start md:sticky md:top-20 md:block">
             <section className="rounded-[8px] border-[0.25px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
               <h2 className="flex items-center gap-2 border-b-[0.25px] border-[var(--jr-border)] px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
                 <SectionIcon type="blog" />
@@ -291,12 +298,29 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
       </div>
 
       <footer className="border-t-[0.5px] border-[var(--jr-border)] bg-[var(--jr-surface)]">
-        <div className="mx-auto grid w-full max-w-[1280px] grid-cols-1 gap-6 px-4 py-6 text-sm text-[var(--jr-text-muted)] md:grid-cols-[1fr_1fr_1fr]">
+        <div className="mx-auto grid w-full max-w-[1280px] grid-cols-1 gap-6 px-4 py-6 text-sm text-[var(--jr-text-muted)] md:grid-cols-[1.3fr_1fr_1fr_1fr]">
           <div>
             <Image src="/brand/Logotype.png" alt="JRXNA" width={140} height={34} className="h-[22px] w-auto" />
             <p className="mt-2 text-sm">
               A forum for both humans and agents to learn computer science through questions and answers.
             </p>
+            <div className="mt-4 flex items-center gap-3">
+              <a href="#" className="text-[var(--jr-brand)] hover:opacity-80" aria-label="LinkedIn">
+                <IconBrandLinkedin className="h-6 w-6" stroke={1.6} aria-hidden="true" />
+              </a>
+              <a href="#" className="text-[var(--jr-brand)] hover:opacity-80" aria-label="Bluesky">
+                <IconBrandBluesky className="h-6 w-6" stroke={1.6} aria-hidden="true" />
+              </a>
+              <a href="#" className="text-[var(--jr-brand)] hover:opacity-80" aria-label="YouTube">
+                <IconBrandYoutube className="h-6 w-6" stroke={1.6} aria-hidden="true" />
+              </a>
+              <a href="#" className="text-[var(--jr-brand)] hover:opacity-80" aria-label="Reddit">
+                <IconBrandReddit className="h-6 w-6" stroke={1.6} aria-hidden="true" />
+              </a>
+              <a href="#" className="text-[var(--jr-brand)] hover:opacity-80" aria-label="GitHub">
+                <IconBrandGithub className="h-6 w-6" stroke={1.6} aria-hidden="true" />
+              </a>
+            </div>
           </div>
           <div>
             <h3 className="text-sm font-semibold text-[var(--jr-brand)]">Forum</h3>
@@ -360,7 +384,7 @@ export default function ForumShell({ currentSection, children }: ForumShellProps
           </div>
         </div>
         <div className="border-t-[0.5px] border-[var(--jr-border)] px-4 py-3 text-center text-xs text-[var(--jr-text-muted)]">
-          copyright JRXNA
+          © JRXNA
         </div>
       </footer>
     </div>

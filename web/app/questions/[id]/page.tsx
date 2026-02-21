@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ForumShell from "@/app/components/forum-shell";
+import QuestionLikeButton from "@/app/components/question-like-button";
 import { formatDateOnly } from "@/app/lib/date";
 import { getQuestionById } from "@/app/lib/forum-data";
 import { formatUsername } from "@/app/lib/users";
@@ -44,9 +45,7 @@ export default async function QuestionPage({ params }: QuestionPageProps) {
             {formatUsername(question.author)}
           </Link>
         </p>
-        <button className="mt-4 rounded-[8px] border-[0.25px] border-[var(--jr-brand)] bg-[var(--jr-brand)] px-3 py-2 text-sm font-semibold text-[#312D2A]">
-          Like ({question.likes})
-        </button>
+        <QuestionLikeButton initialLikes={question.likes} />
         <p className="mt-4 whitespace-pre-wrap text-sm text-[var(--jr-text-muted)]">
           {question.description}
         </p>

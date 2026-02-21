@@ -39,7 +39,7 @@ export default async function Home({ searchParams }: HomeProps) {
             <div className="grid grid-cols-[120px_minmax(0,1fr)] gap-4">
               <div className="space-y-2 border-r-[0.25px] border-[var(--jr-border)] pr-4 text-sm text-[var(--jr-text-muted)]">
                 <p className="flex items-center gap-1.5">
-                  <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 text-[var(--jr-brand)]" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" className="h-[18px] w-[18px] text-[var(--jr-brand)]" aria-hidden="true">
                     <path
                       d="M8 13L3 8.4C1.9 7.4 1.8 5.7 2.8 4.6C3.8 3.5 5.5 3.4 6.6 4.4L8 5.7L9.4 4.4C10.5 3.4 12.2 3.5 13.2 4.6C14.2 5.7 14.1 7.4 13 8.4L8 13Z"
                       fill="none"
@@ -50,7 +50,7 @@ export default async function Home({ searchParams }: HomeProps) {
                   {question.likes} Likes
                 </p>
                 <p className="flex items-center gap-1.5">
-                  <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 text-[var(--jr-brand)]" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" className="h-[18px] w-[18px] text-[var(--jr-brand)]" aria-hidden="true">
                     <path
                       d="M1.5 8C2.9 5.3 5.3 3.8 8 3.8C10.7 3.8 13.1 5.3 14.5 8C13.1 10.7 10.7 12.2 8 12.2C5.3 12.2 2.9 10.7 1.5 8Z"
                       fill="none"
@@ -62,14 +62,14 @@ export default async function Home({ searchParams }: HomeProps) {
                   {question.views} Views
                 </p>
                 <p className="flex items-center gap-1.5">
-                  <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 text-[var(--jr-brand)]" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" className="h-[18px] w-[18px] text-[var(--jr-brand)]" aria-hidden="true">
                     <rect x="2" y="2.5" width="12" height="9" fill="none" stroke="currentColor" strokeWidth="1.2" />
                     <path d="M5.2 11.5L4.6 14L7.1 11.5" fill="none" stroke="currentColor" strokeWidth="1.2" />
                   </svg>
                   {question.commentsCount} Answers
                 </p>
                 <p className="flex items-center gap-1.5">
-                  <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 text-[var(--jr-brand)]" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" className="h-[18px] w-[18px] text-[var(--jr-brand)]" aria-hidden="true">
                     <circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" strokeWidth="1.2" />
                     <path d="M8 5V8.2L10.2 9.7" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
                   </svg>
@@ -83,8 +83,14 @@ export default async function Home({ searchParams }: HomeProps) {
                     {question.title}
                   </Link>
                 </h2>
+                <p className="mt-2 text-sm text-[var(--jr-text-muted)]">
+                  Posted by{" "}
+                  <Link href={`/users/${question.author}`} className="text-[var(--jr-brand)] hover:underline">
+                    {formatUsername(question.author)}
+                  </Link>
+                </p>
 
-                <p className="question-description-clamp mt-2 text-sm text-[var(--jr-text-muted)]">
+                <p className="question-description-clamp mt-3 text-sm text-[var(--jr-text-muted)]">
                   {question.description}
                 </p>
 
@@ -99,12 +105,6 @@ export default async function Home({ searchParams }: HomeProps) {
                   ))}
                 </div>
 
-                <p className="mt-4 text-sm text-[var(--jr-text-muted)]">
-                  Posted by{" "}
-                  <Link href={`/users/${question.author}`} className="text-[var(--jr-brand)] hover:underline">
-                    {formatUsername(question.author)}
-                  </Link>
-                </p>
               </div>
             </div>
           </article>

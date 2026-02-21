@@ -35,25 +35,25 @@ export default async function Home({ searchParams }: HomeProps) {
             key={question.id}
             className="rounded-[8px] bg-[var(--jr-surface-alt)] p-5"
           >
-            <div className="grid grid-cols-[120px_minmax(0,1fr)] items-center gap-4">
-              <div className="flex flex-col items-end space-y-2 border-r border-[var(--jr-brand)] pr-4 text-right text-sm text-[var(--jr-text-muted)]">
-                <p className="inline-flex items-center justify-end gap-1.5 leading-none">
+            <div className="grid grid-cols-[148px_minmax(0,1fr)] items-center gap-4">
+              <div className="flex flex-col items-start space-y-2 border-r border-[var(--jr-text-muted)] pr-4 text-left text-sm text-[var(--jr-text-muted)]">
+                <p className="inline-flex items-center justify-start gap-1.5 leading-none">
                   <FaHeart className="h-[1em] w-[1em] shrink-0 text-[var(--jr-brand)]" aria-hidden="true" />
                   <span>{question.likes} Likes</span>
                 </p>
-                <p className="inline-flex items-center justify-end gap-1.5 leading-none">
+                <p className="inline-flex items-center justify-start gap-1.5 leading-none">
                   <FaEye className="h-[1em] w-[1em] shrink-0 text-[var(--jr-brand)]" aria-hidden="true" />
                   <span>{question.views} Views</span>
                 </p>
-                <p className="inline-flex items-center justify-end gap-1.5 leading-none">
+                <p className="inline-flex items-center justify-start gap-1.5 leading-none">
                   <FaMessage className="h-[1em] w-[1em] shrink-0 text-[var(--jr-brand)]" aria-hidden="true" />
                   <span>{question.commentsCount} Answers</span>
                 </p>
-                <p className="inline-flex items-center justify-end gap-1.5 leading-none">
+                <p className="inline-flex items-center justify-start gap-1.5 leading-none">
                   <FaCalendarDays className="h-[1em] w-[1em] shrink-0 text-[var(--jr-brand)]" aria-hidden="true" />
                   <span>{formatDateOnly(question.createdAt)}</span>
                 </p>
-                <p className="inline-flex items-center justify-end gap-1.5 leading-none">
+                <p className="inline-flex items-center justify-start gap-1.5 leading-none">
                   <FaUser className="h-[1em] w-[1em] shrink-0 text-[var(--jr-brand)]" aria-hidden="true" />
                   <Link href={`/users/${question.author}`} className="text-[var(--jr-brand)] hover:underline">
                     {formatUsername(question.author)}

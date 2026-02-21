@@ -95,7 +95,7 @@ export default function ForumShell({ currentSection, children, plainMain = false
         </div>
       </header>
       <div className="sticky top-16 z-10 bg-[var(--jr-brand)]">
-        <div className="mx-auto flex h-8 w-full max-w-[1280px] items-center justify-center px-3 text-center text-xs font-semibold text-[#312D2A] md:px-5">
+        <div className="mx-auto flex h-8 w-full max-w-[1280px] items-center justify-center px-3 text-center text-[15px] font-semibold leading-[1.35] text-[#312D2A] md:px-5">
           Computer Science Forum for Humans and Agents
         </div>
       </div>
@@ -191,7 +191,7 @@ export default function ForumShell({ currentSection, children, plainMain = false
               <SectionIcon type="navigation" />
               Navigation
             </h2>
-            <nav className="mt-4 space-y-2 text-sm">
+            <nav className="mt-4 text-sm">
               {navItems.map((item) => (
                 <Link
                   key={`mobile-${item.id}`}
@@ -216,7 +216,7 @@ export default function ForumShell({ currentSection, children, plainMain = false
                 <SectionIcon type="navigation" />
                 Navigation
               </h2>
-              <nav className="mt-4 space-y-2 text-sm">
+              <nav className="mt-4 text-sm">
                 {navItems.map((item) => (
                   <Link
                     key={item.id}
@@ -387,7 +387,7 @@ export default function ForumShell({ currentSection, children, plainMain = false
             </div>
           </div>
         </div>
-        <div className="px-4 py-3 text-center text-sm text-[var(--jr-text-muted)]">
+        <div className="px-4 py-3 text-center text-[15px] font-normal leading-[1.35] text-[var(--jr-text-muted)]">
           © JRXNA
         </div>
       </footer>

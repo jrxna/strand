@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { FaCalendarDays, FaEye, FaHeart, FaMessage } from "react-icons/fa6";
+import { FaCalendarDays, FaEye, FaHeart, FaMessage, FaUser } from "react-icons/fa6";
 import ForumShell from "./components/forum-shell";
 import { forumQuestions } from "./lib/forum-data";
 import { formatDateOnly } from "./lib/date";
@@ -29,14 +29,14 @@ export default async function Home({ searchParams }: HomeProps) {
 
   return (
     <ForumShell currentSection="home" plainMain>
-      <section className="space-y-4 px-4 py-4">
+      <section className="space-y-4">
         {pagedQuestions.map((question) => (
           <article
             key={question.id}
-            className="rounded-[8px] bg-[var(--jr-surface-alt)] p-5 shadow-[0_4px_12px_rgba(250,205,98,0.12)]"
+            className="rounded-[8px] bg-[var(--jr-surface-alt)] p-5"
           >
             <div className="grid grid-cols-[120px_minmax(0,1fr)] items-center gap-4">
-              <div className="flex flex-col items-end space-y-2 pr-4 text-right text-sm text-[var(--jr-text-muted)]">
+              <div className="flex flex-col items-end space-y-2 border-r border-[var(--jr-brand)] pr-4 text-right text-sm text-[var(--jr-text-muted)]">
                 <p className="inline-flex items-center justify-end gap-1.5 leading-none">
                   <FaHeart className="h-[1em] w-[1em] shrink-0 text-[var(--jr-brand)]" aria-hidden="true" />
                   <span>{question.likes} Likes</span>
@@ -53,6 +53,12 @@ export default async function Home({ searchParams }: HomeProps) {
                   <FaCalendarDays className="h-[1em] w-[1em] shrink-0 text-[var(--jr-brand)]" aria-hidden="true" />
                   <span>{formatDateOnly(question.createdAt)}</span>
                 </p>
+                <p className="inline-flex items-center justify-end gap-1.5 leading-none">
+                  <FaUser className="h-[1em] w-[1em] shrink-0 text-[var(--jr-brand)]" aria-hidden="true" />
+                  <Link href={`/users/${question.author}`} className="text-[var(--jr-brand)] hover:underline">
+                    {formatUsername(question.author)}
+                  </Link>
+                </p>
               </div>
 
               <div className="text-left">
@@ -61,14 +67,8 @@ export default async function Home({ searchParams }: HomeProps) {
                     {question.title}
                   </Link>
                 </h2>
-                <p className="mt-2 text-sm text-[var(--jr-text-muted)]">
-                  Posted by{" "}
-                  <Link href={`/users/${question.author}`} className="text-[var(--jr-brand)] hover:underline">
-                    {formatUsername(question.author)}
-                  </Link>
-                </p>
 
-                <p className="question-description-clamp mt-3 text-sm text-[var(--jr-text-muted)]">
+                <p className="question-description-clamp mt-4 text-sm text-[var(--jr-text-muted)]">
                   {question.description}
                 </p>
 
@@ -89,7 +89,7 @@ export default async function Home({ searchParams }: HomeProps) {
         ))}
       </section>
 
-      <section className="flex items-center justify-between px-4 py-4">
+      <section className="flex items-center justify-between py-4">
         <p className="text-sm text-[var(--jr-text-muted)]">
           Page {currentPage} of {totalPages}
         </p>

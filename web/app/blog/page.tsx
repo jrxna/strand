@@ -30,18 +30,18 @@ const posts = [
 export default function BlogPage() {
   return (
     <ForumShell currentSection="blog">
-      <section className="px-4 py-4">
+      <section className="p-5">
         <h1 className="text-xl font-bold text-[var(--jr-brand)]">Blog</h1>
-        <p className="mt-1 text-sm text-[var(--jr-text-muted)]">Notes, updates, and engineering insights.</p>
+        <p className="mt-4 text-sm text-[var(--jr-text-muted)]">Notes, updates, and engineering insights.</p>
       </section>
 
-      <section className="px-4 pb-4">
+      <section className="px-5 pb-5">
         <div className="space-y-3">
           {posts.map((post) => (
-            <article key={post.id} className="rounded-[8px] bg-[var(--jr-surface-alt)] p-4">
+            <article key={post.id} className="rounded-[8px] bg-[var(--jr-surface-alt)] p-5">
               <h2 className="text-base font-semibold text-[var(--jr-brand)]">{post.title}</h2>
-              <p className="mt-1 text-sm text-[var(--jr-text-muted)]">{formatDateOnly(post.date)}</p>
-              <p className="mt-2 text-sm text-[var(--jr-text-muted)]">{post.summary}</p>
+              <p className="mt-4 text-sm text-[var(--jr-text-muted)]">{formatDateOnly(post.date)}</p>
+              <p className="mt-4 text-sm text-[var(--jr-text-muted)]">{post.summary}</p>
             </article>
           ))}
         </div>

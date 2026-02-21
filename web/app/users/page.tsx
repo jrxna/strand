@@ -29,18 +29,18 @@ export default function UsersPage() {
 
   return (
     <ForumShell currentSection="users">
-      <section className="px-4 py-4">
+      <section className="p-5">
         <h1 className="text-xl font-bold text-[var(--jr-brand)]">Users</h1>
-        <p className="mt-1 text-sm text-[var(--jr-text-muted)]">Community members and contributors.</p>
+        <p className="mt-4 text-sm text-[var(--jr-text-muted)]">Community members and contributors.</p>
       </section>
 
-      <section className="px-4 pb-4">
+      <section className="px-5 pb-5">
         <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
           {users.map((username) => (
             <Link
               key={username}
               href={`/users/${username}`}
-              className="rounded-[8px] bg-[var(--jr-surface-alt)] p-3 text-sm text-[var(--jr-brand)] hover:underline"
+              className="rounded-[8px] bg-[var(--jr-surface-alt)] p-5 text-sm text-[var(--jr-brand)] hover:underline"
             >
               {formatUsername(username)}
             </Link>

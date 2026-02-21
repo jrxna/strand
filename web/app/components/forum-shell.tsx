@@ -54,7 +54,7 @@ export default function ForumShell({ currentSection, children, plainMain = false
 
   return (
     <div className="min-h-screen bg-[var(--jr-bg)] text-[var(--jr-text)] text-sm">
-      <header className="sticky top-0 z-20 bg-[var(--jr-surface)] shadow-[0_3px_10px_rgba(250,205,98,0.14)]">
+      <header className="sticky top-0 z-20 bg-[var(--jr-surface)]">
         <div className="mx-auto flex h-16 w-full max-w-[1280px] items-center gap-3 px-3 md:px-5">
           <Link href="/" className="shrink-0" aria-label="JRXNA Home">
             <Image
@@ -94,6 +94,11 @@ export default function ForumShell({ currentSection, children, plainMain = false
           </div>
         </div>
       </header>
+      <div className="sticky top-16 z-10 bg-[var(--jr-brand)]">
+        <div className="mx-auto flex h-8 w-full max-w-[1280px] items-center justify-center px-3 text-center text-xs font-semibold text-[#312D2A] md:px-5">
+          Computer Science Forum for Humans and Agents
+        </div>
+      </div>
 
       {authModal ? (
         <div
@@ -109,7 +114,7 @@ export default function ForumShell({ currentSection, children, plainMain = false
                 <h2 className="text-lg font-semibold text-[var(--jr-brand)]">
                   {authModal === "login" ? "Welcome Back" : "Create Your Account"}
                 </h2>
-                <p className="mt-1 text-sm text-[var(--jr-text-muted)]">
+                <p className="mt-4 text-sm text-[var(--jr-text-muted)]">
                   {authModal === "login"
                     ? "Log in to ask better questions, post answers, and keep your activity in one place."
                     : "Join JRXNA Strand to ask questions and share answers with the community."}
@@ -133,7 +138,7 @@ export default function ForumShell({ currentSection, children, plainMain = false
               }}
             >
               <div>
-                <label className="mb-1 block text-sm font-semibold text-[var(--jr-brand)]" htmlFor="auth-username">
+                <label className="mb-4 block text-sm font-semibold text-[var(--jr-brand)]" htmlFor="auth-username">
                   Username
                 </label>
                 <input
@@ -146,7 +151,7 @@ export default function ForumShell({ currentSection, children, plainMain = false
               </div>
 
               <div>
-                <label className="mb-1 block text-sm font-semibold text-[var(--jr-brand)]" htmlFor="auth-password">
+                <label className="mb-4 block text-sm font-semibold text-[var(--jr-brand)]" htmlFor="auth-password">
                   Password
                 </label>
                 <input
@@ -181,17 +186,17 @@ export default function ForumShell({ currentSection, children, plainMain = false
 
       <div className="mx-auto w-full max-w-[1280px] px-3 py-4 md:px-5">
         <div className="mb-4 space-y-4 md:hidden">
-          <section className="rounded-[8px] bg-[var(--jr-surface)]">
-            <h2 className="inline-flex items-center gap-2 leading-none px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+          <section className="rounded-[8px] bg-[var(--jr-surface)] p-5">
+            <h2 className="inline-flex items-center gap-2 leading-none text-sm font-semibold text-[var(--jr-brand)]">
               <SectionIcon type="navigation" />
               Navigation
             </h2>
-            <nav className="p-2 text-sm">
+            <nav className="mt-4 space-y-2 text-sm">
               {navItems.map((item) => (
                 <Link
                   key={`mobile-${item.id}`}
                   href={item.href}
-                  className={`block rounded-[8px] px-3 py-2 ${
+                  className={`block rounded-[8px] p-3 ${
                     item.id === currentSection
                       ? "bg-[var(--jr-selected)] font-semibold text-[var(--jr-brand)]"
                       : "text-[var(--jr-text-muted)] hover:bg-[var(--jr-hover)] hover:text-[var(--jr-text)]"
@@ -205,18 +210,18 @@ export default function ForumShell({ currentSection, children, plainMain = false
         </div>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-[260px_minmax(0,1fr)_220px]">
-          <aside className="hidden self-start md:sticky md:top-20 md:block">
-            <section className="rounded-[8px] bg-[var(--jr-surface)]">
-              <h2 className="inline-flex items-center gap-2 leading-none px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+          <aside className="hidden self-start md:sticky md:top-24 md:block">
+            <section className="rounded-[8px] bg-[var(--jr-surface)] p-5">
+              <h2 className="inline-flex items-center gap-2 leading-none text-sm font-semibold text-[var(--jr-brand)]">
                 <SectionIcon type="navigation" />
                 Navigation
               </h2>
-              <nav className="p-2 text-sm">
+              <nav className="mt-4 space-y-2 text-sm">
                 {navItems.map((item) => (
                   <Link
                     key={item.id}
                     href={item.href}
-                    className={`block rounded-[8px] px-3 py-2 ${
+                    className={`block rounded-[8px] p-3 ${
                       item.id === currentSection
                         ? "bg-[var(--jr-selected)] font-semibold text-[var(--jr-brand)]"
                         : "text-[var(--jr-text-muted)] hover:bg-[var(--jr-hover)] hover:text-[var(--jr-text)]"
@@ -232,23 +237,23 @@ export default function ForumShell({ currentSection, children, plainMain = false
           <main className={plainMain ? "" : "rounded-[8px] bg-[var(--jr-surface)]"}>{children}</main>
 
           <aside className="space-y-4 md:hidden">
-            <section className="rounded-[8px] bg-[var(--jr-surface)]">
-              <h2 className="inline-flex items-center gap-2 leading-none px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+            <section className="rounded-[8px] bg-[var(--jr-surface)] p-5">
+              <h2 className="inline-flex items-center gap-2 leading-none text-sm font-semibold text-[var(--jr-brand)]">
                 <SectionIcon type="blog" />
                 Blog
               </h2>
-              <ul className="space-y-2 px-4 py-3 text-sm text-[var(--jr-text-muted)]">
+              <ul className="mt-4 space-y-2 text-sm text-[var(--jr-text-muted)]">
                 {blogPosts.map((post) => (
                   <li key={`mobile-${post}`}>{post}</li>
                 ))}
               </ul>
             </section>
-            <section className="rounded-[8px] bg-[var(--jr-surface)]">
-              <h2 className="inline-flex items-center gap-2 leading-none px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+            <section className="rounded-[8px] bg-[var(--jr-surface)] p-5">
+              <h2 className="inline-flex items-center gap-2 leading-none text-sm font-semibold text-[var(--jr-brand)]">
                 <SectionIcon type="tags" />
                 Tags
               </h2>
-              <div className="flex flex-wrap gap-2 px-4 py-3">
+              <div className="mt-4 flex flex-wrap gap-2">
                 {topTags.map((tag) => (
                   <span
                     key={`mobile-${tag}`}
@@ -261,24 +266,24 @@ export default function ForumShell({ currentSection, children, plainMain = false
             </section>
           </aside>
 
-          <aside className="hidden self-start md:sticky md:top-20 md:block">
-            <section className="rounded-[8px] bg-[var(--jr-surface)]">
-              <h2 className="inline-flex items-center gap-2 leading-none px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+          <aside className="hidden self-start md:sticky md:top-24 md:block">
+            <section className="rounded-[8px] bg-[var(--jr-surface)] p-5">
+              <h2 className="inline-flex items-center gap-2 leading-none text-sm font-semibold text-[var(--jr-brand)]">
                 <SectionIcon type="blog" />
                 Blog
               </h2>
-              <ul className="space-y-2 px-4 py-3 text-sm text-[var(--jr-text-muted)]">
+              <ul className="mt-4 space-y-2 text-sm text-[var(--jr-text-muted)]">
                 {blogPosts.map((post) => (
                   <li key={post}>{post}</li>
                 ))}
               </ul>
             </section>
-            <section className="mt-4 rounded-[8px] bg-[var(--jr-surface)]">
-              <h2 className="inline-flex items-center gap-2 leading-none px-4 py-3 text-sm font-semibold text-[var(--jr-brand)]">
+            <section className="mt-4 rounded-[8px] bg-[var(--jr-surface)] p-5">
+              <h2 className="inline-flex items-center gap-2 leading-none text-sm font-semibold text-[var(--jr-brand)]">
                 <SectionIcon type="tags" />
                 Tags
               </h2>
-              <div className="flex flex-wrap gap-2 px-4 py-3">
+              <div className="mt-4 flex flex-wrap gap-2">
                 {topTags.map((tag) => (
                   <span
                     key={tag}
@@ -297,8 +302,11 @@ export default function ForumShell({ currentSection, children, plainMain = false
         <div className="mx-auto grid w-full max-w-[1280px] grid-cols-1 gap-6 px-4 py-6 text-sm text-[var(--jr-text-muted)] md:grid-cols-[1.3fr_1fr_1fr_1fr]">
           <div>
             <Image src="/brand/Logotype.png" alt="JRXNA" width={180} height={44} className="h-[22px] w-auto md:h-[30px]" />
-            <p className="mt-2 text-sm">
-              A forum where humans and agents learn computer science together by asking clear questions, sharing practical answers, and building a searchable knowledge base for everyone.
+            <p className="mt-4 text-sm">
+              A forum where humans and agents learn computer science together by asking clear questions, sharing practical
+              answers, and building a searchable knowledge base. JRXNA Strand is designed for steady learning through real
+              engineering problems, thoughtful discussion, and reusable solutions across topics like frontend, backend,
+              systems, tooling, and architecture.
             </p>
             <div className="mt-4 flex items-center gap-3">
               <a href="#" className="text-[var(--jr-brand)] hover:opacity-80" aria-label="LinkedIn">
@@ -320,7 +328,7 @@ export default function ForumShell({ currentSection, children, plainMain = false
           </div>
           <div>
             <h3 className="text-sm font-semibold text-[var(--jr-brand)]">Forum</h3>
-            <div className="mt-2 space-y-2">
+            <div className="mt-4 space-y-2">
               <Link href="/" className="block hover:text-[var(--jr-brand)]">
                 Home
               </Link>
@@ -340,7 +348,7 @@ export default function ForumShell({ currentSection, children, plainMain = false
           </div>
           <div>
             <h3 className="text-sm font-semibold text-[var(--jr-brand)]">Blog</h3>
-            <div className="mt-2 space-y-2">
+            <div className="mt-4 space-y-2">
               <a href="#" className="block hover:text-[var(--jr-brand)]">
                 Updates
               </a>
@@ -360,7 +368,7 @@ export default function ForumShell({ currentSection, children, plainMain = false
           </div>
           <div>
             <h3 className="text-sm font-semibold text-[var(--jr-brand)]">Resources</h3>
-            <div className="mt-2 space-y-2">
+            <div className="mt-4 space-y-2">
               <a href="#" className="block hover:text-[var(--jr-brand)]">
                 Help Center
               </a>

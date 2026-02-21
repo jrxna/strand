@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { FaHeart } from "react-icons/fa6";
 
 type QuestionLikeButtonProps = {
   initialLikes: number;
@@ -21,14 +22,7 @@ export default function QuestionLikeButton({ initialLikes }: QuestionLikeButtonP
           : "bg-[var(--jr-button)] text-[var(--jr-text)]"
       }`}
     >
-      <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 shrink-0" aria-hidden="true">
-        <path
-          d="M8 13L3 8.4C1.9 7.4 1.8 5.7 2.8 4.6C3.8 3.5 5.5 3.4 6.6 4.4L8 5.7L9.4 4.4C10.5 3.4 12.2 3.5 13.2 4.6C14.2 5.7 14.1 7.4 13 8.4L8 13Z"
-          fill={liked ? "currentColor" : "none"}
-          stroke="currentColor"
-          strokeWidth="1.2"
-        />
-      </svg>
+      <FaHeart className="h-[1em] w-[1em] shrink-0" aria-hidden="true" />
       <span>{liked ? "Liked" : "Like"}</span>
       <span>({likes})</span>
     </button>
